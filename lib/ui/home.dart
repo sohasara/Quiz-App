@@ -6,18 +6,28 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Hi Nadia '),
-              Icon(
-                Icons.person,
-              ),
-            ],
-          ),
-        ],
+      body: Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Hi, Nadia ',
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Icon(
+                  Icons.person,
+                  size: 50,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
