@@ -12,58 +12,68 @@ class HomePage extends StatelessWidget {
           right: 20,
           top: 20,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Hi, Nadia ',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hi, Nadia ',
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Text(
-                      'Let\'s make this day productive',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.purple,
+                      Text(
+                        'Let\'s make this day productive',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.purple,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Icon(
-                  Icons.person,
-                  size: 50,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Container(
-              height: 90,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
-                border: Border.all(width: 0.3),
+                    ],
+                  ),
+                  Icon(
+                    Icons.person,
+                    size: 50,
+                  ),
+                ],
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              'Let\'s  Play',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
+              const SizedBox(
+                height: 15,
               ),
-            ),
-          ],
+              Container(
+                height: 90,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(width: 0.3),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text(
+                'Let\'s  Play',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Container(
+                height: 200,
+                width: 200,
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
