@@ -15,3 +15,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+//https://opentdb.com/api.php?amount=10&category=17&difficulty=medium&type=multiple
+//https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple
+//https://opentdb.com/api.php?amount=10&category=11&difficulty=hard&type=multiple
+//https://opentdb.com/api_config.php
