@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                   Icon(
-                    Icons.person,
+                    Icons.person_2,
                     size: 50,
                   ),
                 ],
@@ -52,7 +52,9 @@ class HomePage extends StatelessWidget {
                 height: 90,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18),
-                  border: Border.all(width: 0.3),
+                  border: Border.all(
+                    width: 0.3,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -65,12 +67,18 @@ class HomePage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(
+                height: 15,
+              ),
               Container(
                 height: 200,
                 width: 200,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18),
                   border: Border.all(width: 0.3),
+                ),
+                child: const Column(
+                  children: [],
                 ),
               ),
             ],
