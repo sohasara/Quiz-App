@@ -72,13 +72,15 @@ class HomePage extends StatelessWidget {
               ),
               Container(
                 height: 200,
-                width: 200,
+                width: 180,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18),
                   border: Border.all(width: 0.3),
                 ),
-                child: const Column(
-                  children: [],
+                child: Column(
+                  children: [
+                    Image.asset('assets/football.png'),
+                  ],
                 ),
               ),
             ],
