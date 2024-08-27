@@ -5,12 +5,16 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.only(
+          left: 20.0,
+          right: 20,
+          top: 20,
+        ),
         child: Column(
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
@@ -24,7 +28,11 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Lts\'s make this day productive',
+                      'Let\'s make this day productive',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.purple,
+                      ),
                     ),
                   ],
                 ),
@@ -34,6 +42,13 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+            Container(
+              height: 90,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(width: 0.3),
+              ),
+            )
           ],
         ),
       ),
