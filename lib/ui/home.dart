@@ -13,6 +13,7 @@ class HomePage extends StatelessWidget {
           top: 20,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,13 +43,26 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 15,
+            ),
             Container(
               height: 90,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 border: Border.all(width: 0.3),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              'Let\'s  Play',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ],
         ),
       ),
