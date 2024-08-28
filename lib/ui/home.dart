@@ -79,7 +79,19 @@ class HomePage extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
+                    const SizedBox(
+                      height: 18,
+                    ),
                     Image.asset('assets/football.png'),
+                    const Text(
+                      'Sports',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.purple,
+                      ),
+                    ),
+                    const Text('10 Questions'),
                   ],
                 ),
               ),
