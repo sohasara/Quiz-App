@@ -12,8 +12,8 @@ class ContainerBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
-      width: 180,
+      height: 180,
+      width: 170,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
         border: Border.all(width: 0.3),
@@ -25,7 +25,6 @@ class ContainerBox extends StatelessWidget {
           ),
           Image.asset(
             imageurl,
-            fit: BoxFit.fill,
           ),
           Text(
             text,
