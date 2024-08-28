@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ContainerBox extends StatelessWidget {
-  const ContainerBox({super.key});
+  final String imageurl;
+  final String text;
+  const ContainerBox({
+    super.key,
+    required this.imageurl,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +23,13 @@ class ContainerBox extends StatelessWidget {
           const SizedBox(
             height: 18,
           ),
-          Image.asset('assets/football.png'),
-          const Text(
-            'Sports',
-            style: TextStyle(
+          Image.asset(
+            imageurl,
+            fit: BoxFit.fill,
+          ),
+          Text(
+            text,
+            style: const TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w700,
               color: Colors.purple,

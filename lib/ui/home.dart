@@ -71,7 +71,30 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              ContainerBox()
+              const ContainerBox(
+                imageurl: "assets/football.png",
+                text: 'Sports',
+              ),
+              const ContainerBox(
+                imageurl: "assets/math.png",
+                text: 'Math',
+              ),
+              const ContainerBox(
+                imageurl: 'assets/film.png',
+                text: 'Flims',
+              ),
+              const ContainerBox(
+                imageurl: 'assets/geo.png',
+                text: 'Geography',
+              ),
+              const ContainerBox(
+                imageurl: 'assets/gk.png',
+                text: 'GK',
+              ),
+              const ContainerBox(
+                imageurl: 'assets/politic.png',
+                text: 'Politics',
+              ),
             ],
           ),
         ),
