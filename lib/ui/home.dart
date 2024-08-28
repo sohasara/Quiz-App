@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/data/container_data.dart';
 import 'package:quiz_app/ui/container.dart';
 
 class HomePage extends StatelessWidget {
@@ -71,29 +72,22 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              const ContainerBox(
-                imageurl: "assets/football.png",
-                text: 'Sports',
-              ),
-              const ContainerBox(
-                imageurl: "assets/math.png",
-                text: 'Math',
-              ),
-              const ContainerBox(
-                imageurl: 'assets/film.png',
-                text: 'Flims',
-              ),
-              const ContainerBox(
-                imageurl: 'assets/geo.png',
-                text: 'Geography',
-              ),
-              const ContainerBox(
-                imageurl: 'assets/gk.png',
-                text: 'GK',
-              ),
-              const ContainerBox(
-                imageurl: 'assets/politic.png',
-                text: 'Politics',
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 20,
+                  childAspectRatio: 0.8,
+                ),
+                itemCount: dataImage.length,
+                itemBuilder: (context, index) {
+                  return ContainerBox(
+                    imageurl: dataImage[index]['imageurl'].toString(),
+                    text: dataImage[index]['text'].toString(),
+                  );
+                },
               ),
             ],
           ),
