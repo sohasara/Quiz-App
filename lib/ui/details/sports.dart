@@ -26,12 +26,12 @@ class SportsPage extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(
-              height: 40,
+              height: 20,
             ),
             Container(
               padding: const EdgeInsets.all(15),
               height: 200,
-              width: 320,
+              width: 330,
               decoration: BoxDecoration(
                 color: Colors.purple[300],
                 borderRadius: BorderRadius.circular(20),
@@ -45,6 +45,28 @@ class SportsPage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              width: 245,
+              height: 400,
+              child: ListView.builder(
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                      top: 20.0,
+                    ),
+                    child: Container(
+                      height: 80,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.purple[300],
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            )
           ],
         ),
       ),
