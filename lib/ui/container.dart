@@ -25,6 +25,9 @@ class ContainerBox extends StatelessWidget {
           ),
           Image.asset(
             imageurl,
+            height: 100,
+            width: 100,
+            fit: BoxFit.cover,
           ),
           Text(
             text,
