@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:quiz_app/data/container_data.dart';
 import 'package:quiz_app/ui/home_page/container.dart';
 
@@ -9,11 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(
-          left: 20.0,
-          right: 20,
-          top: 20,
-        ),
+        padding: const EdgeInsets.only(left: 20.0, right: 20, top: 20),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -47,21 +44,15 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 15,
-              ),
+              const SizedBox(height: 15),
               Container(
                 height: 90,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18),
-                  border: Border.all(
-                    width: 0.3,
-                  ),
+                  border: Border.all(width: 0.3),
                 ),
               ),
-              const SizedBox(
-                height: 15,
-              ),
+              const SizedBox(height: 15),
               const Text(
                 'Let\'s  Play',
                 style: TextStyle(
@@ -69,30 +60,26 @@ class HomePage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(
-                height: 15,
-              ),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 20,
-                  childAspectRatio: 0.8,
+              const SizedBox(height: 15),
+              StaggeredGrid.count(
+                crossAxisCount: 2,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 10,
+                children: List.generate(
+                  dataImage.length,
+                  (index) {
+                    return StaggeredGridTile.fit(
+                      crossAxisCellCount: 1,
+                      child: ContainerBox(
+                        index: index,
+                        imageurl: dataImage[index]['imageurl'].toString(),
+                        text: dataImage[index]['text'].toString(),
+                      ),
+                    );
+                  },
                 ),
-                itemCount: dataImage.length,
-                itemBuilder: (context, index) {
-                  return ContainerBox(
-                    index: index,
-                    imageurl: dataImage[index]['imageurl'].toString(),
-                    text: dataImage[index]['text'].toString(),
-                  );
-                },
               ),
-              const SizedBox(
-                height: 15,
-              ),
+              const SizedBox(height: 15),
             ],
           ),
         ),
