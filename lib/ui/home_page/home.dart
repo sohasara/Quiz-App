@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
               StaggeredGrid.count(
                 crossAxisCount: 2,
                 mainAxisSpacing: 20,
-                crossAxisSpacing: 10,
+                crossAxisSpacing: 18,
                 children: List.generate(
                   dataImage.length,
                   (index) {
