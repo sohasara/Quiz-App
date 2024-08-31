@@ -13,8 +13,14 @@ class ContainerBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = 230; // Default height
+
+    // Set the height for specific indices (2, 3, 5)
+    if (index == 0) {
+      height = 200;
+    }
     return Container(
-      height: index % 2 == 0 ? 210 : 240,
+      height: height,
       width: 170,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
