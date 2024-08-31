@@ -25,12 +25,20 @@ class SportsPage extends StatelessWidget {
         ),
         child: Column(
           children: [
+            const SizedBox(
+              height: 40,
+            ),
             Container(
-              height: 180,
-              width: 300,
+              padding: const EdgeInsets.all(15),
+              height: 200,
+              width: 320,
               decoration: BoxDecoration(
                 color: Colors.purple[300],
                 borderRadius: BorderRadius.circular(20),
+              ),
+              child: const Text(
+                'what is the name of the capital of bangladesh',
+                style: TextStyle(),
               ),
             ),
           ],
