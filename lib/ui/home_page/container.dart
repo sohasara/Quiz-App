@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class ContainerBox extends StatelessWidget {
   final String imageurl;
   final String text;
+  final int index;
   const ContainerBox({
     super.key,
     required this.imageurl,
     required this.text,
+    required this.index,
   });
 
   @override

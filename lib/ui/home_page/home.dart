@@ -84,6 +84,7 @@ class HomePage extends StatelessWidget {
                 itemCount: dataImage.length,
                 itemBuilder: (context, index) {
                   return ContainerBox(
+                    index: index,
                     imageurl: dataImage[index]['imageurl'].toString(),
                     text: dataImage[index]['text'].toString(),
                   );
