@@ -13,9 +13,7 @@ class ContainerBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = 230; // Default height
-
-    // Set the height for specific indices (2, 3, 5)
+    double height = 230;
     if (index == 0) {
       height = 200;
     }
