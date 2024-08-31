@@ -25,9 +25,6 @@ class SportsPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const SizedBox(
-              height: 20,
-            ),
             Container(
               padding: const EdgeInsets.all(15),
               height: 200,
@@ -46,7 +43,7 @@ class SportsPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 245,
+              width: 270,
               height: 400,
               child: ListView.builder(
                 itemCount: 4,
@@ -56,7 +53,7 @@ class SportsPage extends StatelessWidget {
                       top: 20.0,
                     ),
                     child: Container(
-                      height: 80,
+                      height: 70,
                       width: 50,
                       decoration: BoxDecoration(
                         color: Colors.purple[300],
@@ -65,6 +62,24 @@ class SportsPage extends StatelessWidget {
                     ),
                   );
                 },
+              ),
+            ),
+            Container(
+              height: 50,
+              width: 150,
+              decoration: BoxDecoration(
+                color: Colors.purple[300],
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: const Center(
+                child: Text(
+                  'Next',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                  ),
+                ),
               ),
             )
           ],
