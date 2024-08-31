@@ -7,7 +7,7 @@ class SportsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.purple[100],
       ),
       body: Container(
         height: double.infinity,
@@ -15,14 +15,26 @@ class SportsPage extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Colors.purple[300]!,
               Colors.purple[100]!,
+              Colors.purple[200]!,
+              Colors.purple[100]!
             ],
             begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+            end: Alignment.bottomLeft,
           ),
         ),
-        child: Column(),
+        child: Column(
+          children: [
+            Container(
+              height: 180,
+              width: 300,
+              decoration: BoxDecoration(
+                color: Colors.purple[300],
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
