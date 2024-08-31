@@ -37,8 +37,12 @@ class SportsPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: const Text(
-                'what is the name of the capital of bangladesh',
-                style: TextStyle(),
+                'what is the name of the capital of bangladesh?',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
           ],
