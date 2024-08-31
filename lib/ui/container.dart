@@ -29,6 +29,9 @@ class ContainerBox extends StatelessWidget {
             width: 100,
             fit: BoxFit.cover,
           ),
+          const SizedBox(
+            height: 10,
+          ),
           Text(
             text,
             style: const TextStyle(
@@ -37,7 +40,12 @@ class ContainerBox extends StatelessWidget {
               color: Colors.purple,
             ),
           ),
-          const Text('10 Questions'),
+          const Text(
+            '10 Questions',
+            style: TextStyle(
+              fontSize: 17,
+            ),
+          ),
         ],
       ),
     );
