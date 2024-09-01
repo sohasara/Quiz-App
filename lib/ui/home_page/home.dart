@@ -65,6 +65,9 @@ class HomePage extends StatelessWidget {
                         Text('3100'),
                       ],
                     ),
+                    const SizedBox(
+                      width: 120,
+                    ),
                     Image.asset(
                       'assets/coin.png',
                       height: 60,
@@ -72,8 +75,21 @@ class HomePage extends StatelessWidget {
                     const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Points'),
-                        Text('3100'),
+                        Text(
+                          'Points',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          '3100',
+                          style: TextStyle(
+                            fontSize: 22,
+                            color: Colors.purple,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ],
                     ),
                   ],
