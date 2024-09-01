@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz_app/data/sport_data.dart';
 
 class Api {
@@ -14,3 +15,15 @@ class Api {
     }
   }
 }
+
+final apiProvider = Provider<Api>(
+  (ref) {
+    return Api();
+  },
+);
+final sportProvider = FutureProvider(
+  (ref) {
+    final apiservice = ref.watch(apiProvider);
+    return apiservice.fetch();
+  },
+);
