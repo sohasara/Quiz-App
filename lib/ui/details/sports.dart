@@ -44,7 +44,7 @@ class SportsPage extends StatelessWidget {
             ),
             SizedBox(
               width: 270,
-              height: 400,
+              height: 380,
               child: ListView.builder(
                 itemCount: 4,
                 itemBuilder: (context, index) {
