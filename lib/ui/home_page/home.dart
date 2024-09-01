@@ -52,15 +52,27 @@ class HomePage extends StatelessWidget {
                   border: Border.all(width: 0.3),
                 ),
                 child: Row(
+                  //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Image.asset(
                       'assets/cup.png',
-                      height: 50,
+                      height: 60,
                     ),
                     const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text('Ranking'),
+                        Text('3100'),
+                      ],
+                    ),
+                    Image.asset(
+                      'assets/coin.png',
+                      height: 60,
+                    ),
+                    const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Points'),
                         Text('3100'),
                       ],
                     ),
