@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz_app/ui/home_page/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +25,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-//https://opentdb.com/api.php?amount=10&category=17&difficulty=medium&type=multiple
-//https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple
-//https://opentdb.com/api.php?amount=10&category=11&difficulty=hard&type=multiple
+
 //https://opentdb.com/api_config.php

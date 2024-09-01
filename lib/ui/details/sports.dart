@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quiz_app/data/api.dart';
 
-class SportsPage extends StatelessWidget {
+class SportsPage extends ConsumerWidget {
   const SportsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final provider = ref.watch(sportProvider);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple[100],
