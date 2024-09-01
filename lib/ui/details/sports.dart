@@ -36,7 +36,7 @@ class SportsPage extends ConsumerWidget {
                 color: Colors.purple[300],
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: const Text(
+              child: Text(
                 '',
                 style: TextStyle(
                   fontSize: 20,
