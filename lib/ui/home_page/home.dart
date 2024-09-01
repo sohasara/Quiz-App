@@ -51,6 +51,21 @@ class HomePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(18),
                   border: Border.all(width: 0.3),
                 ),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/cup.png',
+                      height: 50,
+                    ),
+                    const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Ranking'),
+                        Text('3100'),
+                      ],
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 15),
               const Text(
