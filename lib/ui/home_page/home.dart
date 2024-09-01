@@ -54,6 +54,9 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    const SizedBox(
+                      width: 10,
+                    ),
                     Image.asset(
                       'assets/cup.png',
                       height: 60,
@@ -61,12 +64,25 @@ class HomePage extends StatelessWidget {
                     const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Ranking'),
-                        Text('3100'),
+                        Text(
+                          'Ranking',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          '2100',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.purple,
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(
-                      width: 120,
+                      width: 100,
                     ),
                     Image.asset(
                       'assets/coin.png',
