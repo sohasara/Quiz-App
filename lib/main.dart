@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz_app/ui/home_page/home.dart';
+import 'package:quiz_app/ui/splash_page/splash.dart';
 
 void main() {
   runApp(
@@ -21,9 +22,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         //textTheme:
       ),
-      home: const HomePage(),
+      // home: const HomePage(),
+      home: const SplashPage(),
     );
   }
 }
-
-//https://opentdb.com/api_config.php
