@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/ui/home_page/home.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -40,6 +41,14 @@ class SplashPage extends StatelessWidget {
             height: 190,
           ),
           GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomePage(),
+                ),
+              );
+            },
             child: Container(
               height: 65,
               width: 330,
