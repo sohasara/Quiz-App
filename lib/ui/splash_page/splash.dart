@@ -16,11 +16,6 @@ class SplashPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/auto.png',
-                width: 90,
-                fit: BoxFit.fitWidth,
-              ),
               Text(
                 'QUIZ',
                 style: TextStyle(
@@ -30,9 +25,8 @@ class SplashPage extends StatelessWidget {
                 ),
               ),
               Image.asset(
-                'assets/brain.png',
-                // height: 150,
-                width: 100,
+                'assets/auto.png',
+                width: 90,
                 fit: BoxFit.fitWidth,
               ),
             ],
