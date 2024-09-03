@@ -37,7 +37,7 @@ class SplashPage extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 180,
+            height: 190,
           ),
           GestureDetector(
             child: Container(
@@ -48,7 +48,13 @@ class SplashPage extends StatelessWidget {
                 color: Colors.purple,
               ),
               child: const Center(
-                child: Text('Get Startd'),
+                child: Text(
+                  'Get Startd',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ),
