@@ -43,28 +43,6 @@ class SportsPage extends ConsumerWidget {
                 ),
               ),
             ),
-            SizedBox(
-              width: 270,
-              height: 380,
-              child: ListView.builder(
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(
-                      top: 20.0,
-                    ),
-                    child: Container(
-                      height: 70,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.purple[300],
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
             Container(
               height: 50,
               width: 150,
