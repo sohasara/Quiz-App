@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quiz_app/ui/home_page/home.dart';
+//import 'package:quiz_app/ui/home_page/home.dart';
 import 'package:quiz_app/ui/splash_page/splash.dart';
 
 void main() {

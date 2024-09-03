@@ -5,9 +5,25 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Column(
-        children: [],
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [
+              Colors.purple[50]!,
+              Colors.purple[200]!,
+            ],
+          ),
+        ),
+        child: const Column(
+          //crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('QUIZ'),
+          ],
+        ),
       ),
     );
   }
