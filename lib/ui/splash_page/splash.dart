@@ -10,7 +10,7 @@ class SplashPage extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(
-            height: 200,
+            height: 220,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -36,7 +36,22 @@ class SplashPage extends StatelessWidget {
               ),
             ],
           ),
-          Text('Get Startd'),
+          const SizedBox(
+            height: 180,
+          ),
+          GestureDetector(
+            child: Container(
+              height: 65,
+              width: 330,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.purple,
+              ),
+              child: const Center(
+                child: Text('Get Startd'),
+              ),
+            ),
+          ),
         ],
       ),
     );
