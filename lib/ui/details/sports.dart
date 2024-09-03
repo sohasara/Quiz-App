@@ -43,24 +43,6 @@ class SportsPage extends ConsumerWidget {
                 ),
               ),
             ),
-            Container(
-              height: 50,
-              width: 150,
-              decoration: BoxDecoration(
-                color: Colors.purple[300],
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: const Center(
-                child: Text(
-                  'Next',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-            )
           ],
         ),
       ),
