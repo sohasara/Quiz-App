@@ -60,7 +60,7 @@ class SplashPage extends StatelessWidget {
               },
               child: Container(
                 height: 65,
-                width: 330,
+                width: 320,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.purple,
