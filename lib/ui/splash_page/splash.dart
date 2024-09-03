@@ -18,10 +18,15 @@ class SplashPage extends StatelessWidget {
           ),
         ),
         child: const Column(
-          //crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('QUIZ'),
+            Text(
+              'QUIZ',
+              style: TextStyle(
+                fontSize: 100,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ],
         ),
       ),
