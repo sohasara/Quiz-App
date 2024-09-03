@@ -13,6 +13,7 @@ class SplashPage extends StatelessWidget {
           gradient: RadialGradient(
             colors: [
               Colors.purple[50]!,
+              Colors.purple[50]!,
               Colors.purple[200]!,
             ],
           ),
