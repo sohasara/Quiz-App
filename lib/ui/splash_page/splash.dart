@@ -19,7 +19,7 @@ class SplashPage extends StatelessWidget {
               'assets/brain.png',
               height: 150,
               width: 150,
-              color: Colors.purple[300],
+              color: Colors.purple[700],
               fit: BoxFit.cover,
             ),
             const SizedBox(
