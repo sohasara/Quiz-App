@@ -6,31 +6,30 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: RadialGradient(
-            colors: [
-              Colors.purple[50]!,
-              Colors.purple[50]!,
-              Colors.purple[200]!,
-            ],
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(
+            'assets/auto.png',
+            width: 90,
+            fit: BoxFit.fitWidth,
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'QUIZ',
-              style: TextStyle(
-                fontSize: 100,
-                fontWeight: FontWeight.w700,
-                color: Colors.purple[600],
-              ),
+          Text(
+            'QUIZ',
+            style: TextStyle(
+              fontSize: 80,
+              fontWeight: FontWeight.w700,
+              color: Colors.purple[600],
             ),
-          ],
-        ),
+          ),
+          Image.asset(
+            'assets/brain.png',
+            // height: 150,
+            width: 100,
+            fit: BoxFit.fitWidth,
+          ),
+        ],
       ),
     );
   }
