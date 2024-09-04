@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/ui/details/sports.dart';
+import 'package:quiz_app/ui/details/details_page.dart';
 
 class ContainerBox extends StatelessWidget {
   final String imageurl;
@@ -21,7 +21,7 @@ class ContainerBox extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const SportsPage()));
+            MaterialPageRoute(builder: (context) => const DetailsPage()));
       },
       child: Container(
         height: height,
