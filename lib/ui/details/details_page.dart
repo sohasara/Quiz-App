@@ -43,6 +43,7 @@ class DetailsPage extends ConsumerWidget {
                 ),
               ),
             ),
+            
           ],
         ),
       ),
