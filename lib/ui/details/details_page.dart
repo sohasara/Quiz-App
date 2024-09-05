@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quiz_app/ui/details/options.dart';
 
 class DetailsPage extends ConsumerWidget {
   const DetailsPage({super.key});
@@ -46,6 +47,7 @@ class DetailsPage extends ConsumerWidget {
             const SizedBox(
               height: 20,
             ),
+            const Options(),
           ],
         ),
       ),
