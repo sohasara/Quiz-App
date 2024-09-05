@@ -46,14 +46,6 @@ class DetailsPage extends ConsumerWidget {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              height: 80,
-              width: 330,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
-                color: Colors.purple[300],
-              ),
-            ),
           ],
         ),
       ),
