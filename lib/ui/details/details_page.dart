@@ -35,7 +35,7 @@ class DetailsPage extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: const Text(
-                '',
+                'what is the name of your country ?',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,
