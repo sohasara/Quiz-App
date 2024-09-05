@@ -43,7 +43,14 @@ class DetailsPage extends ConsumerWidget {
                 ),
               ),
             ),
-            
+            Container(
+              height: 80,
+              width: 350,
+              decoration: BoxDecoration(
+                border: Border.all(),
+                color: Colors.purple[300],
+              ),
+            ),
           ],
         ),
       ),
