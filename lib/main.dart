@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:quiz_app/api/fetch_data.dart';
+
 import 'package:quiz_app/data/quiz_model.dart';
 
-//import 'package:quiz_app/ui/splash_page/splash.dart';
+import 'package:quiz_app/ui/splash_page/splash.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -28,8 +28,7 @@ class MyApp extends StatelessWidget {
         //textTheme:
       ),
       // home: const HomePage(),
-      // home: const SplashPage(),
-      home: const QuizScreen(),
+      home: const SplashPage(),
     );
   }
 }
