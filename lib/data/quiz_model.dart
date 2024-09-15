@@ -21,4 +21,14 @@ class QuizQuestion extends HiveObject {
     required this.correctAnswer,
     required this.incorrectAnswer,
   });
+
+  factory QuizQuestion.fromJson(Map<String, dynamic> json) {
+    return QuizQuestion(
+      category: json['category'],
+      type: json['type'],
+      question: json['question'],
+      correctAnswer: json['correct_answer'],
+      incorrectAnswer: List<String>.from(json['incorrect_answer']),
+    );
+  }
 }
