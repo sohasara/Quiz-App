@@ -1,75 +1,58 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'package:quiz_app/data/quiz_model.dart';
 
-// Constants for Hive box names
-const String quizBoxName = 'quizBox';
+final quizProvider =
+    StateNotifierProvider<QuizNotifier, AsyncValue<List<QuizQuestion>>>(
+        (ref) => QuizNotifier());
 
-final quizQuestionProvider =
-    StateNotifierProvider<QuizQuestionNotifier, List<QuizQuestion>>((ref) {
-  return QuizQuestionNotifier();
-});
+class QuizNotifier extends StateNotifier<AsyncValue<List<QuizQuestion>>> {
+  QuizNotifier()
+      : super(const AsyncValue.loading()); // Initially, set loading state
 
-class QuizQuestionNotifier extends StateNotifier<List<QuizQuestion>> {
-  QuizQuestionNotifier() : super([]);
-
-  // Fetch questions from API and store them in Hive
-  Future<void> fetchQuizQuestions(String categoryUrl) async {
+  Future<void> fetchQuizData(String apiUrl) async {
+    state =
+        const AsyncValue.loading(); // Set loading state before fetching data
+    final dio = Dio();
     try {
-      final response = await Dio().get(categoryUrl);
+      final response = await dio.get(apiUrl);
+      final List<dynamic> results = response.data['results'];
+      final List<QuizQuestion> quizQuestions =
+          results.map((json) => QuizQuestion.fromJson(json)).toList();
 
-      if (response.statusCode == 200) {
-        final List<dynamic> data = response.data['results'];
-
-        List<QuizQuestion> quizQuestions = data.map((item) {
-          return QuizQuestion(
-            category: item['category'],
-            type: item['type'],
-            question: item['question'],
-            correctAnswer: item['correct_answer'],
-            incorrectAnswer: List<String>.from(item['incorrect_answers']),
-          );
-        }).toList();
-
-        // Store the questions in Hive
-        await _storeQuestionsInHive(quizQuestions);
-
-        // Update the state with the new questions
-        state = quizQuestions;
-      } else {
-        throw Exception('Failed to load quiz data: ${response.statusMessage}');
-      }
-    } catch (e) {
-      _handleError(e);
-    }
-  }
-
-  // Load stored questions from Hive
-  Future<void> loadQuestionsFromDatabase() async {
-    try {
-      var box = await Hive.openBox<QuizQuestion>(quizBoxName);
-      state = box.values.toList();
-    } catch (e) {
-      _handleError(e);
-    }
-  }
-
-  // Store quiz questions in Hive
-  Future<void> _storeQuestionsInHive(List<QuizQuestion> quizQuestions) async {
-    try {
-      var box = await Hive.openBox<QuizQuestion>(quizBoxName);
+      // Storing in Hive
+      var box = await Hive.openBox<QuizQuestion>('quizBox');
       await box.clear(); // Clear old data
-      await box.addAll(quizQuestions); // Add new data
-    } catch (e) {
-      _handleError(e);
+      for (var question in quizQuestions) {
+        await box.add(question);
+      }
+
+      state = AsyncValue.data(
+          quizQuestions); // Set the data state after successful fetch
+    } catch (error) {
+      state = AsyncValue.error(
+          error, StackTrace.current); // Set error state if something goes wrong
     }
   }
 
-  // Error handler method
-  void _handleError(dynamic error) {
-    // print('Error: $error'); // Better to log this to a file or service
-    state = []; // Clear state if an error occurs
+  // Fetch from Hive if already stored
+  Future<void> getQuizFromHive() async {
+    state = const AsyncValue
+        .loading(); // Set loading state before fetching from Hive
+    try {
+      var box = await Hive.openBox<QuizQuestion>('quizBox');
+      final List<QuizQuestion> quizQuestions = box.values.toList();
+      if (quizQuestions.isNotEmpty) {
+        state = AsyncValue.data(
+            quizQuestions); // Set the data state after successfully fetching from Hive
+      } else {
+        state = AsyncValue.error('No data found in Hive',
+            StackTrace.current); // Handle empty Hive box
+      }
+    } catch (error) {
+      state = AsyncValue.error(
+          error, StackTrace.current); // Set error state if Hive fails
+    }
   }
 }
