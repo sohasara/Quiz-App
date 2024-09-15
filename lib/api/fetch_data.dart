@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
+import 'package:dio/dio.dart';
+
 class SportApi {
   final String question;
   final String correct_answer;
@@ -29,4 +31,10 @@ class SportApi {
           (map['incorrect_answer'] as List<String>),
         ));
   }
+}
+
+class FetchData {
+  final Dio dio = Dio();
+  final String url =
+      'https://opentdb.com/api.php?amount=10&category=17&difficulty=medium&type=multiple';
 }
