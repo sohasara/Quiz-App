@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+//import 'package:quiz_app/state/quiz_state.dart';
 import 'package:quiz_app/ui/details/options.dart';
 
 class DetailsPage extends ConsumerWidget {
@@ -7,6 +8,7 @@ class DetailsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // final quiz = ref.watch(quizProvider);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple[100],
@@ -36,7 +38,7 @@ class DetailsPage extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: const Text(
-                'what is the name of your country ?',
+                '',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,
