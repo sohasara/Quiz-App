@@ -9,7 +9,7 @@ class QuizResponse {
     return QuizResponse(
       results: List<QuizQuestion>.from(
         (json['results'] as List<dynamic>).map(
-          (item) => QuizQuestion.fromJson(item as Map<String, dynamic>),
+          (item) => QuizQuestion.fromMap(item as Map<String, dynamic>),
         ),
       ),
     );
