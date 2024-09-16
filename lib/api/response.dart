@@ -1,3 +1,25 @@
+// import 'package:dio/dio.dart';
+// import 'package:quiz_app/data/quiz_response.dart';
+
+// class QuizApi {
+//   final Dio dio = Dio();
+//   final String url =
+//       'https://opentdb.com/api.php?amount=10&category=24&difficulty=medium&type=multiple';
+
+//   Future<QuizResponse> fetchApi() async {
+//     try {
+//       final respone = await dio.get(url);
+//       if (respone.statusCode == 200) {
+//         print(respone.data);
+//         return QuizResponse.fromJson(respone.data);
+//       } else {
+//         throw Exception('failed to load data');
+//       }
+//     } catch (e) {
+//       throw Exception(e);
+//     }
+//   }
+// }
 import 'package:dio/dio.dart';
 import 'package:quiz_app/data/quiz_response.dart';
 
@@ -8,14 +30,22 @@ class QuizApi {
 
   Future<QuizResponse> fetchApi() async {
     try {
-      final respone = await dio.get(url);
-      if (respone.statusCode == 200) {
-        return QuizResponse.fromJson(respone.data);
+      final response = await dio.get(url);
+
+      if (response.statusCode == 200) {
+        final results = response.data['results'];
+        if (results != null && results is List) {
+          return QuizResponse.fromJson(response.data);
+        } else {
+          throw Exception(
+              'Invalid API response: "results" is null or not a list');
+        }
       } else {
-        throw Exception('failed to load data');
+        throw Exception(
+            'Failed to load data: Status code ${response.statusCode}');
       }
     } catch (e) {
-      throw Exception(e);
+      throw Exception('Error occurred: $e');
     }
   }
 }

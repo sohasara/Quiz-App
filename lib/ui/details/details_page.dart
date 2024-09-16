@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-//import 'package:quiz_app/state/quiz_state.dart';
+import 'package:quiz_app/state/quiz_state.dart';
 import 'package:quiz_app/ui/details/options.dart';
 
 class DetailsPage extends ConsumerWidget {
@@ -8,7 +8,8 @@ class DetailsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final quiz = ref.watch(quizProvider);
+    final quiz = ref.watch(quizProvider);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple[100],
