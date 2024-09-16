@@ -4,7 +4,7 @@ import 'package:quiz_app/data/quiz_response.dart';
 class QuizApi {
   final Dio dio = Dio();
   final String url =
-      'https://opentdb.com/api.php?amount=10&category=17&difficulty=medium&type=multiple';
+      'https://opentdb.com/api.php?amount=10&category=24&difficulty=medium&type=multiple';
 
   Future<QuizResponse> fetchApi() async {
     try {
