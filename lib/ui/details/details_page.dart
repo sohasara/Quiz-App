@@ -23,11 +23,14 @@ class DetailsPage extends ConsumerWidget {
         final questionText = question.question;
         final incorrectAnswers = question.incorrectAnswer;
         final correctAnswer = question.correctAnswer;
-        final ans = [...incorrectAnswers, correctAnswer]..shuffle();
+
+        // Avoid duplicating the correct answer
+        final ans = <String>{...incorrectAnswers, correctAnswer}.toList()
+          ..shuffle(); // Use a set to avoid duplicates
 
         return Column(
           children: [
-            // Expanding the container to avoid infinite height error
+            // Expanded container for the question
             Expanded(
               child: Container(
                 width: double.infinity,
@@ -64,18 +67,19 @@ class DetailsPage extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    // Displaying the answers as options
+                    // Wrapping options in a ListView to avoid overflow
                     Expanded(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: ans
-                              .map(
-                                (ans) => Options(
-                                  op: ans,
-                                ),
-                              )
-                              .toList(),
-                        ),
+                      child: ListView.builder(
+                        itemCount: ans.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 8.0, horizontal: 15.0),
+                            child: Options(
+                              op: ans[index],
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],
