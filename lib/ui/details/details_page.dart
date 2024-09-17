@@ -56,7 +56,12 @@ class DetailsPage extends ConsumerWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Options(),
+                  //const Options(),
+                  ...ans.map(
+                    (ans) => Options(
+                      op: ans,
+                    ),
+                  ),
                 ],
               ),
             );
