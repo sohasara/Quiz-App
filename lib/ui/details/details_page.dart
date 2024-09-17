@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz_app/state/quiz_state.dart';
 import 'package:quiz_app/ui/details/options.dart';
 
-// A StateProvider to track the current question index
+// State provider to track the current question index
 final currentQuestionIndexProvider = StateProvider<int>((ref) => 0);
 
 class DetailsPage extends ConsumerWidget {
@@ -24,9 +24,9 @@ class DetailsPage extends ConsumerWidget {
         final incorrectAnswers = question.incorrectAnswer;
         final correctAnswer = question.correctAnswer;
 
-        // Avoid duplicating the correct answer
-        final ans = <String>{...incorrectAnswers, correctAnswer}.toList()
-          ..shuffle(); // Use a set to avoid duplicates
+        // Combine correct and incorrect answers into one list
+        List<String> ans = [...incorrectAnswers, correctAnswer];
+        ans.shuffle(); // Shuffle the combined list
 
         return Column(
           children: [
@@ -67,7 +67,7 @@ class DetailsPage extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    // Wrapping options in a ListView to avoid overflow
+                    // Display options
                     Expanded(
                       child: ListView.builder(
                         itemCount: ans.length,
