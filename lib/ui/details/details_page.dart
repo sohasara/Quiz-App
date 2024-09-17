@@ -44,9 +44,9 @@ class DetailsPage extends ConsumerWidget {
                       color: Colors.purple[300],
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Text(
-                      '',
-                      style: TextStyle(
+                    child: Text(
+                      question.question,
+                      style: const TextStyle(
                         fontSize: 20,
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
