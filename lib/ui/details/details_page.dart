@@ -19,7 +19,8 @@ class DetailsPage extends ConsumerWidget {
           itemCount: data.results.length,
           itemBuilder: (context, index) {
             final question = data.results[index];
-            final ans = [...question.incorrectAnswer, question.correctAnswer];
+            final ans = [...question.incorrectAnswer, question.correctAnswer]
+              ..shuffle();
             return Container(
               height: double.infinity,
               width: double.infinity,
