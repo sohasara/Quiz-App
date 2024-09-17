@@ -16,7 +16,7 @@ class QuizQuestion {
     return QuizQuestion(
       question: map['question'] ?? '',
       correctAnswer: map['correct_answer'] ?? '',
-      incorrectAnswer: List<String>.from(map['incorrect_answer'] ?? '')
+      incorrectAnswer: List<String>.from(map['incorrect_answer'] ?? [])
         ..add(map['correct_answer'] ?? '')
         ..shuffle(),
     );
