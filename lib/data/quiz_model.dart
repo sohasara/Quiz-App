@@ -13,7 +13,6 @@ class QuizQuestion {
     return QuizQuestion(
       question: map['question'] ?? '',
       correctAnswer: map['correct_answer'] ?? '',
-      // Ensure you're using 'incorrect_answers' (plural) as per the API response
       incorrectAnswer: List<String>.from(map['incorrect_answers'] ?? []),
     );
   }

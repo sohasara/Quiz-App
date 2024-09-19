@@ -24,14 +24,11 @@ class DetailsPage extends ConsumerWidget {
         final incorrectAnswers = question.incorrectAnswer;
         final correctAnswer = question.correctAnswer;
 
-// Combine correct and incorrect answers into one list
         List<String> ans = [...incorrectAnswers, correctAnswer];
-        ans.shuffle(); // Shuffle the combined list
-// Shuffle the combined list
+        ans.shuffle();
 
         return Column(
           children: [
-            // Expanded container for the question
             Expanded(
               child: Container(
                 width: double.infinity,
@@ -87,7 +84,6 @@ class DetailsPage extends ConsumerWidget {
                 ),
               ),
             ),
-            // The "Next Question" button
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
@@ -95,7 +91,6 @@ class DetailsPage extends ConsumerWidget {
                   if (currentQuestionIndex < data.results.length - 1) {
                     ref.read(currentQuestionIndexProvider.notifier).state++;
                   } else {
-                    // If it's the last question, show a completion dialog or reset the quiz
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
@@ -105,7 +100,6 @@ class DetailsPage extends ConsumerWidget {
                         actions: [
                           TextButton(
                             onPressed: () {
-                              // Reset the quiz or navigate to another page
                               Navigator.of(context).pop();
                               ref
                                   .read(currentQuestionIndexProvider.notifier)
