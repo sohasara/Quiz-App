@@ -8,12 +8,12 @@ class Options extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      width: 330,
+      width: 300,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
         color: Colors.purple[300],
       ),
-      child: Text(op),
+      child: Center(child: Text(op)),
     );
   }
 }
