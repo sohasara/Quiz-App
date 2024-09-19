@@ -5,6 +5,132 @@ import 'package:quiz_app/ui/details/options.dart';
 
 // State provider to track the current question index
 final currentQuestionIndexProvider = StateProvider<int>((ref) => 0);
+// State provider to track the selected answer
+final selectedAnswerProvider = StateProvider<String?>((ref) => null);
+
+// class DetailsPage extends ConsumerWidget {
+//   const DetailsPage({super.key});
+
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final quiz = ref.watch(quizProvider);
+//     final currentQuestionIndex = ref.watch(currentQuestionIndexProvider);
+
+//     return Scaffold(
+//       appBar: AppBar(
+//         backgroundColor: Colors.purple[100],
+//       ),
+//       body: quiz.when(data: (data) {
+//         final question = data.results[currentQuestionIndex];
+//         final questionText = question.question;
+//         final incorrectAnswers = question.incorrectAnswer;
+//         final correctAnswer = question.correctAnswer;
+
+//         List<String> ans = [...incorrectAnswers, correctAnswer];
+//         ans.shuffle();
+
+//         return Column(
+//           children: [
+//             Expanded(
+//               child: Container(
+//                 width: double.infinity,
+//                 decoration: BoxDecoration(
+//                   gradient: LinearGradient(
+//                     colors: [
+//                       Colors.purple[100]!,
+//                       Colors.purple[200]!,
+//                       Colors.purple[100]!
+//                     ],
+//                     begin: Alignment.topLeft,
+//                     end: Alignment.bottomLeft,
+//                   ),
+//                 ),
+//                 child: Column(
+//                   children: [
+//                     Container(
+//                       padding: const EdgeInsets.all(15),
+//                       height: 200,
+//                       width: 385,
+//                       decoration: BoxDecoration(
+//                         color: Colors.purple[300],
+//                         borderRadius: BorderRadius.circular(20),
+//                       ),
+//                       child: SingleChildScrollView(
+//                         child: Text(
+//                           questionText,
+//                           style: const TextStyle(
+//                             fontSize: 20,
+//                             color: Colors.white,
+//                             fontWeight: FontWeight.w700,
+//                           ),
+//                         ),
+//                       ),
+//                     ),
+//                     const SizedBox(height: 20),
+//                     // Display options
+//                     Expanded(
+//                       child: ListView.builder(
+//                         itemCount: ans.length,
+//                         itemBuilder: (context, index) {
+//                           return Padding(
+//                             padding: const EdgeInsets.symmetric(
+//                                 vertical: 8.0, horizontal: 15.0),
+//                             child: Options(
+//                               op: ans[index],
+//                             ),
+//                           );
+//                         },
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(8.0),
+//               child: ElevatedButton(
+//                 onPressed: () {
+//                   if (currentQuestionIndex < data.results.length - 1) {
+//                     ref.read(currentQuestionIndexProvider.notifier).state++;
+//                   } else {
+//                     showDialog(
+//                       context: context,
+//                       builder: (context) => AlertDialog(
+//                         title: const Text('Quiz Completed'),
+//                         content:
+//                             const Text('You have answered all the questions!'),
+//                         actions: [
+//                           TextButton(
+//                             onPressed: () {
+//                               Navigator.of(context).pop();
+//                               ref
+//                                   .read(currentQuestionIndexProvider.notifier)
+//                                   .state = 0;
+//                             },
+//                             child: const Text('Restart'),
+//                           ),
+//                         ],
+//                       ),
+//                     );
+//                   }
+//                 },
+//                 child: const Text('Next Question'),
+//               ),
+//             ),
+//           ],
+//         );
+//       }, error: (error, stackTrace) {
+//         return Center(
+//           child: Text(error.toString()),
+//         );
+//       }, loading: () {
+//         return const Center(
+//           child: CircularProgressIndicator(),
+//         );
+//       }),
+//     );
+//   }
+// }
 
 class DetailsPage extends ConsumerWidget {
   const DetailsPage({super.key});
@@ -13,119 +139,170 @@ class DetailsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final quiz = ref.watch(quizProvider);
     final currentQuestionIndex = ref.watch(currentQuestionIndexProvider);
+    final selectedAnswer =
+        ref.watch(selectedAnswerProvider); // Track selected answer
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple[100],
       ),
-      body: quiz.when(data: (data) {
-        final question = data.results[currentQuestionIndex];
-        final questionText = question.question;
-        final incorrectAnswers = question.incorrectAnswer;
-        final correctAnswer = question.correctAnswer;
+      body: quiz.when(
+        data: (data) {
+          final question = data.results[currentQuestionIndex];
+          final questionText = question.question;
+          final incorrectAnswers = question.incorrectAnswer;
+          final correctAnswer = question.correctAnswer;
 
-        List<String> ans = [...incorrectAnswers, correctAnswer];
-        ans.shuffle();
+          // Combine correct and incorrect answers into one list
+          List<String> ans = [...incorrectAnswers, correctAnswer];
+          // ans.shuffle(); // Shuffle the combined list
 
-        return Column(
-          children: [
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.purple[100]!,
-                      Colors.purple[200]!,
-                      Colors.purple[100]!
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomLeft,
+          return Column(
+            children: [
+              // Expanded container for the question
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.purple[100]!,
+                        Colors.purple[200]!,
+                        Colors.purple[100]!
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomLeft,
+                    ),
                   ),
-                ),
-                child: Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(15),
-                      height: 200,
-                      width: 385,
-                      decoration: BoxDecoration(
-                        color: Colors.purple[300],
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: SingleChildScrollView(
-                        child: Text(
-                          questionText,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700,
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(15),
+                        height: 200,
+                        width: 385,
+                        decoration: BoxDecoration(
+                          color: Colors.purple[300],
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: SingleChildScrollView(
+                          child: Text(
+                            questionText,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    // Display options
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: ans.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 8.0, horizontal: 15.0),
-                            child: Options(
-                              op: ans[index],
-                            ),
-                          );
-                        },
+                      const SizedBox(height: 20),
+                      // Display options
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: ans.length,
+                          itemBuilder: (context, index) {
+                            final option = ans[index];
+                            final isCorrect = option == correctAnswer;
+                            final isSelected = option == selectedAnswer;
+
+                            return GestureDetector(
+                              onTap: () {
+                                ref
+                                    .read(selectedAnswerProvider.notifier)
+                                    .state = option; // Set the selected answer
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 8.0,
+                                  horizontal: 15.0,
+                                ),
+                                child: Container(
+                                  padding: const EdgeInsets.all(15),
+                                  decoration: BoxDecoration(
+                                    color: Colors.purple[300],
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                      color: isSelected
+                                          ? (isCorrect
+                                              ? Colors.green
+                                              : Colors.red)
+                                          : Colors
+                                              .transparent, // Green if correct, Red if wrong
+                                      width: 4.0,
+                                    ),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      option,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  if (currentQuestionIndex < data.results.length - 1) {
-                    ref.read(currentQuestionIndexProvider.notifier).state++;
-                  } else {
-                    showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: const Text('Quiz Completed'),
-                        content:
-                            const Text('You have answered all the questions!'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                              ref
-                                  .read(currentQuestionIndexProvider.notifier)
-                                  .state = 0;
-                            },
-                            child: const Text('Restart'),
-                          ),
-                        ],
-                      ),
-                    );
-                  }
-                },
-                child: const Text('Next Question'),
+              // The "Next Question" button
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (currentQuestionIndex < data.results.length - 1) {
+                      // Reset selected answer when moving to the next question
+                      ref.read(currentQuestionIndexProvider.notifier).state++;
+                      ref.read(selectedAnswerProvider.notifier).state = null;
+                    } else {
+                      // If it's the last question, show a completion dialog or reset the quiz
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: const Text('Quiz Completed'),
+                          content: const Text(
+                              'You have answered all the questions!'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                // Reset the quiz or navigate to another page
+                                Navigator.of(context).pop();
+                                ref
+                                    .read(currentQuestionIndexProvider.notifier)
+                                    .state = 0;
+                                ref
+                                    .read(selectedAnswerProvider.notifier)
+                                    .state = null;
+                              },
+                              child: const Text('Restart'),
+                            ),
+                          ],
+                        ),
+                      );
+                    }
+                  },
+                  child: const Text('Next Question'),
+                ),
               ),
-            ),
-          ],
-        );
-      }, error: (error, stackTrace) {
-        return Center(
-          child: Text(error.toString()),
-        );
-      }, loading: () {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      }),
+            ],
+          );
+        },
+        error: (error, stackTrace) {
+          return Center(
+            child: Text(error.toString()),
+          );
+        },
+        loading: () {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
     );
   }
 }
