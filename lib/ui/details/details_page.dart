@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz_app/state/quiz_state.dart';
-import 'package:quiz_app/ui/details/options.dart';
+//import 'package:quiz_app/ui/details/options.dart';
 
 // State provider to track the current question index
 final currentQuestionIndexProvider = StateProvider<int>((ref) => 0);
