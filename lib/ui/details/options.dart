@@ -13,7 +13,15 @@ class Options extends StatelessWidget {
         borderRadius: BorderRadius.circular(18),
         color: Colors.purple[300],
       ),
-      child: Center(child: Text(op)),
+      child: Center(
+          child: Text(
+        op,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      )),
     );
   }
 }
