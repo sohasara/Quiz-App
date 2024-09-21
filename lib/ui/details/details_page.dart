@@ -29,11 +29,9 @@ class DetailsPage extends ConsumerWidget {
 
           // Combine correct and incorrect answers into one list
           List<String> ans = [...incorrectAnswers, correctAnswer];
-          // ans.shuffle(); // Shuffle the combined list
 
           return Column(
             children: [
-              // Expanded container for the question
               Expanded(
                 child: Container(
                   width: double.infinity,
