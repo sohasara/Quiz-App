@@ -52,7 +52,7 @@ class DetailsPage extends ConsumerWidget {
                     child: Column(
                       children: [
                         Container(
-                          padding: const EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(25),
                           height: 200,
                           width: 385,
                           decoration: BoxDecoration(
