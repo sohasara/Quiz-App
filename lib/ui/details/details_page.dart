@@ -58,9 +58,9 @@ class DetailsPage extends ConsumerWidget {
                             child: Text(
                               questionText,
                               style: const TextStyle(
-                                fontSize: 20,
+                                fontSize: 22,
                                 color: Colors.white,
-                                fontWeight: FontWeight.w700,
+                                // fontWeight: FontWeight.w700,
                               ),
                             ),
                           ),
