@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:quiz_app/data/container_data.dart';
+import 'package:quiz_app/%20data_model/container_data.dart';
 import 'package:quiz_app/ui/home_page/container.dart';
 
 class HomePage extends StatelessWidget {

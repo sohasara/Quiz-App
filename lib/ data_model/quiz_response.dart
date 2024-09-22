@@ -1,4 +1,4 @@
-import 'package:quiz_app/data/quiz_model.dart';
+import 'package:quiz_app/%20data_model/quiz_model.dart';
 
 class QuizResponse {
   final List<QuizQuestion> results;

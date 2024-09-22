@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:quiz_app/data/quiz_response.dart';
+import 'package:quiz_app/%20data_model/quiz_response.dart';
 
 class QuizApi {
   final Dio dio = Dio();
