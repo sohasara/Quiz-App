@@ -64,4 +64,30 @@ final apiData = [
       "incorrect_answers": ["Interrobang", "Tilde", "Pilcrow"]
     },
   ],
+  [
+    {
+      "category": "Entertainment: Film",
+      "question":
+          "The film Mad Max: Fury Road features the Dies Irae  from which composer&#039;s requiem?",
+      "correct_answer": "Verdi",
+      "incorrect_answers": ["Mozart", "Berlioz", "Brahms"]
+    },
+    {
+      "category": "Entertainment: Film",
+      "question": "What was the last Marx Brothers film to feature Zeppo?",
+      "correct_answer": "Duck Soup",
+      "incorrect_answers": [
+        "A Night at the Opera",
+        "A Day at the Races",
+        "Monkey Business"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "question":
+          "Before &quot;Jurassic Park III&quot; was finalized and the Spinosaurus was chosen, which dinosaur was going to be the star?",
+      "correct_answer": "Baryonyx",
+      "incorrect_answers": ["Tyrannosaurus Rex", "Velociraptor", "Suchomimus"]
+    },
+  ],
 ];
