@@ -9,8 +9,7 @@ class DetailsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final quiz = ref.watch(quizProvider);
     final currentQuestionIndex = ref.watch(currentQuestionIndexProvider);
-    final selectedAnswer =
-        ref.watch(selectedAnswerProvider); // Track selected answer
+    final selectedAnswer = ref.watch(selectedAnswerProvider);
 
     return Scaffold(
       backgroundColor: Colors.purple[100],
@@ -60,13 +59,11 @@ class DetailsPage extends ConsumerWidget {
                               style: const TextStyle(
                                 fontSize: 22,
                                 color: Colors.white,
-                                // fontWeight: FontWeight.w700,
                               ),
                             ),
                           ),
                         ),
                         const SizedBox(height: 20),
-                        // Display options
                         Expanded(
                           child: ListView.builder(
                             itemCount: options.length,
@@ -78,9 +75,8 @@ class DetailsPage extends ConsumerWidget {
                               return GestureDetector(
                                 onTap: () {
                                   ref
-                                          .read(selectedAnswerProvider.notifier)
-                                          .state =
-                                      option; // Set the selected answer
+                                      .read(selectedAnswerProvider.notifier)
+                                      .state = option;
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -120,7 +116,6 @@ class DetailsPage extends ConsumerWidget {
                     ),
                   ),
                 ),
-                // The "Next Question" button
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
@@ -130,11 +125,9 @@ class DetailsPage extends ConsumerWidget {
                     ),
                     onPressed: () {
                       if (currentQuestionIndex < data.results.length - 1) {
-                        // Reset selected answer when moving to the next question
                         ref.read(currentQuestionIndexProvider.notifier).state++;
                         ref.read(selectedAnswerProvider.notifier).state = null;
                       } else {
-                        // If it's the last question, show a completion dialog or reset the quiz
                         showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
@@ -144,7 +137,6 @@ class DetailsPage extends ConsumerWidget {
                             actions: [
                               TextButton(
                                 onPressed: () {
-                                  // Reset the quiz or navigate to another page
                                   Navigator.of(context).pop();
                                   ref
                                       .read(
