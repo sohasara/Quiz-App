@@ -24,8 +24,7 @@ class DetailsPage extends ConsumerWidget {
           final incorrectAnswers = question.incorrectAnswer;
           final correctAnswer = question.correctAnswer;
 
-          // Combine correct and incorrect answers into one list
-          List<String> ans = [...incorrectAnswers, correctAnswer];
+          List<String> options = [...incorrectAnswers, correctAnswer];
 
           return Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
@@ -70,9 +69,9 @@ class DetailsPage extends ConsumerWidget {
                         // Display options
                         Expanded(
                           child: ListView.builder(
-                            itemCount: ans.length,
+                            itemCount: options.length,
                             itemBuilder: (context, index) {
-                              final option = ans[index];
+                              final option = options[index];
                               final isCorrect = option == correctAnswer;
                               final isSelected = option == selectedAnswer;
 
