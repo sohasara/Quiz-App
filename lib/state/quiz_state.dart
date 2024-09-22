@@ -6,3 +6,7 @@ final quizApiProvider = Provider((ref) => QuizApi());
 final quizProvider = FutureProvider<QuizResponse>((ref) async {
   return ref.read(quizApiProvider).fetchApi();
 });
+
+final currentQuestionIndexProvider = StateProvider<int>((ref) => 0);
+
+final selectedAnswerProvider = StateProvider<String?>((ref) => null);

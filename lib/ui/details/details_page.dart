@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz_app/state/quiz_state.dart';
 
-final currentQuestionIndexProvider = StateProvider<int>((ref) => 0);
-
-final selectedAnswerProvider = StateProvider<String?>((ref) => null);
-
 class DetailsPage extends ConsumerWidget {
   const DetailsPage({super.key});
 
@@ -102,8 +98,7 @@ class DetailsPage extends ConsumerWidget {
                                             ? (isCorrect
                                                 ? Colors.green
                                                 : Colors.red)
-                                            : Colors
-                                                .transparent, // Green if correct, Red if wrong
+                                            : Colors.transparent,
                                         width: 4.0,
                                       ),
                                     ),
