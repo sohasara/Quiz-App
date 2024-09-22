@@ -24,7 +24,7 @@ class DetailsPage extends ConsumerWidget {
           final correctAnswer = question.correctAnswer;
 
           List<String> options = [...incorrectAnswers, correctAnswer];
-          options.shuffle();
+          //options.shuffle();
           return Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
             child: Column(
