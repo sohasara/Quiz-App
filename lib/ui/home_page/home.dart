@@ -133,6 +133,7 @@ class HomePage extends StatelessWidget {
                         index: index,
                         imageurl: dataImage[index]['imageurl'].toString(),
                         text: dataImage[index]['text'].toString(),
+                        apiurl: dataImage[index]['apiurl'].toString(),
                       ),
                     );
                   },

@@ -5,11 +5,13 @@ class ContainerBox extends StatelessWidget {
   final String imageurl;
   final String text;
   final int index;
+  final String apiurl;
   const ContainerBox({
     super.key,
     required this.imageurl,
     required this.text,
     required this.index,
+    required this.apiurl,
   });
 
   @override
