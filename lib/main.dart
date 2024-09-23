@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quiz_app/example.dart';
-//import 'package:quiz_app/example.dart';
 
-//import 'package:quiz_app/ui/splash_page/splash.dart';
+import 'package:quiz_app/ui/splash_page/splash.dart';
 
 void main() {
   runApp(
@@ -20,8 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: SplashPage(),
-      home: CategoryScreen(),
+      home: SplashPage(),
+      // home: CategoryScreen(),
     );
   }
 }
