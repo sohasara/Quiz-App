@@ -24,6 +24,7 @@ class DetailsPage extends ConsumerWidget {
           Container(
             height: 160,
             width: 380,
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
