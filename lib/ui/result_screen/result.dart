@@ -13,13 +13,25 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Quiz Results')),
+      backgroundColor: Colors.purple[100],
+      appBar: AppBar(
+        backgroundColor: Colors.purple[100],
+        centerTitle: true,
+        title: const Text(
+          'Quiz Results',
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                'You answered $correctAnswers out of $totalQuestions correctly!'),
+              'You answered $correctAnswers out of $totalQuestions correctly!',
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context); // Go back to category screen
