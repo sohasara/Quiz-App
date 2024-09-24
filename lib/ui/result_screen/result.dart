@@ -26,7 +26,7 @@ class ResultScreen extends StatelessWidget {
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        //mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             'You answered $correctAnswers out of $totalQuestions correctly!',
