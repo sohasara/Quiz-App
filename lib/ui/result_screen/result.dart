@@ -55,7 +55,7 @@ class ResultScreen extends StatelessWidget {
                 children: [
                   Text(
                     correctAnswers.toString(),
-                  )
+                  ),
                 ],
               ),
             ),
