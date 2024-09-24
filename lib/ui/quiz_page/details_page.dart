@@ -24,14 +24,17 @@ class DetailsPage extends ConsumerWidget {
           Container(
             height: 160,
             width: 380,
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(
               currentQuestion.question,
-              style: const TextStyle(),
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           ...currentQuestion.options.map((option) {
