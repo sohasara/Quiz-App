@@ -53,6 +53,8 @@ class ResultScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
+                  const Text('Congratulations'),
+                  const Text('You have complete the Quiz'),
                   Text(
                     correctAnswers.toString(),
                   ),
