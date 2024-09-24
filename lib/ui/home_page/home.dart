@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:quiz_app/%20data_model/container_data.dart';
+import 'package:quiz_app/%20data_model/category_model.dart';
+
 import 'package:quiz_app/ui/home_page/container.dart';
 
 class HomePage extends StatelessWidget {
@@ -125,15 +126,15 @@ class HomePage extends StatelessWidget {
                 mainAxisSpacing: 20,
                 crossAxisSpacing: 18,
                 children: List.generate(
-                  dataImage.length,
+                  categories.length,
                   (index) {
                     return StaggeredGridTile.fit(
                       crossAxisCellCount: 1,
                       child: ContainerBox(
                         index: index,
-                        imageurl: dataImage[index]['imageurl'].toString(),
-                        text: dataImage[index]['text'].toString(),
-                        apiurl: dataImage[index]['apiurl'].toString(),
+                        imageurl: categories[index].imageurl,
+                        text: categories[index].name,
+                        apiurl: categories[index].apiurl,
                       ),
                     );
                   },
