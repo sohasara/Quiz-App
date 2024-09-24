@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:quiz_app/%20data_model/question_model.dart';
 import 'package:quiz_app/state/quiz_state.dart';
+import 'package:quiz_app/ui/result_screen/result.dart';
 
 class DetailsPage extends ConsumerWidget {
   final List<Question> questions;
@@ -22,7 +23,7 @@ class DetailsPage extends ConsumerWidget {
             height: 20,
           ),
           Container(
-            height: 160,
+            height: 170,
             width: 380,
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
@@ -84,14 +85,14 @@ class DetailsPage extends ConsumerWidget {
               onTap: () {
                 quizNotifier.nextQuestion(questions.length);
                 if (quizState.currentQuestionIndex >= questions.length - 1) {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => ResultScreen(
-                  //         correctAnswers: quizState.correctAnswers,
-                  //         totalQuestions: questions.length),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ResultScreen(
+                          correctAnswers: quizState.correctAnswers,
+                          totalQuestions: questions.length),
+                    ),
+                  );
                 }
               },
               child: Container(
