@@ -22,19 +22,24 @@ class DetailsPage extends ConsumerWidget {
           const SizedBox(
             height: 20,
           ),
-          Container(
-            height: 170,
-            width: 380,
-            padding: const EdgeInsets.all(15),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
+          Padding(
+            padding: const EdgeInsets.only(
+              bottom: 10,
             ),
-            child: Text(
-              currentQuestion.question,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+            child: Container(
+              height: 170,
+              width: 380,
+              padding: const EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                currentQuestion.question,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
