@@ -14,6 +14,7 @@ class QuizScreen extends ConsumerWidget {
     final quizQuestions = ref.watch(quizQuestionsProvider(category.apiurl));
 
     return Scaffold(
+      backgroundColor: Colors.purple[200],
       appBar: AppBar(title: Text('Quiz: ${category.name}')),
       body: quizQuestions.when(
         data: (questions) => DetailsPage(questions: questions),
