@@ -60,9 +60,6 @@ class ResultScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Text(
-              'You answered $correctAnswers out of $totalQuestions correctly!',
-            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context); // Go back to category screen
