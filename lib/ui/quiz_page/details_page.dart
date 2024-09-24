@@ -101,7 +101,16 @@ class DetailsPage extends ConsumerWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Text('Next Question'),
+                child: const Center(
+                  child: Text(
+                    'Next Question',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.purple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ),
             ),
         ],
