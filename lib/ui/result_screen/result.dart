@@ -28,7 +28,6 @@ class ResultScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(left: 25.0, top: 20),
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               height: 30,
@@ -62,7 +61,7 @@ class ResultScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context); // Go back to category screen
+                Navigator.pop(context);
               },
               child: const Text('Try Again'),
             ),
