@@ -65,7 +65,12 @@ class DetailsPage extends ConsumerWidget {
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Text(option),
+                  child: Text(
+                    option,
+                    style: const TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
                 ),
               ),
             );
