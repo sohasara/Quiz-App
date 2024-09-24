@@ -18,6 +18,9 @@ class DetailsPage extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          const SizedBox(
+            height: 20,
+          ),
           Container(
             height: 160,
             width: 380,
@@ -35,25 +38,28 @@ class DetailsPage extends ConsumerWidget {
                       option, currentQuestion.correctAnswer);
                 }
               },
-              child: Container(
-                height: 60,
-                width: 380,
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(
-                    color: quizState.isAnswered &&
-                            option == currentQuestion.correctAnswer
-                        ? Colors.green
-                        : quizState.isAnswered &&
-                                option != currentQuestion.correctAnswer
-                            ? Colors.red
-                            : Colors.grey,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Container(
+                  height: 60,
+                  width: 380,
+                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      color: quizState.isAnswered &&
+                              option == currentQuestion.correctAnswer
+                          ? Colors.green
+                          : quizState.isAnswered &&
+                                  option != currentQuestion.correctAnswer
+                              ? Colors.red
+                              : Colors.grey,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  borderRadius: BorderRadius.circular(10),
+                  child: Text(option),
                 ),
-                child: Text(option),
               ),
             );
           }),
