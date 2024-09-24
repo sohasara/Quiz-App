@@ -25,7 +25,7 @@ class DetailsPage extends ConsumerWidget {
             height: 160,
             width: 380,
             decoration: BoxDecoration(
-              color: Colors.purple[300],
+              color: Colors.white,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(currentQuestion.question),
