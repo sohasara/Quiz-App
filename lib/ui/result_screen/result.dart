@@ -31,12 +31,26 @@ class ResultScreen extends StatelessWidget {
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
+              height: 30,
+              width: 380,
+              decoration: const BoxDecoration(
+                color: Colors.purple,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
+            ),
+            Container(
               padding: const EdgeInsets.all(8),
-              height: 400,
+              height: 450,
               width: 380,
               decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
               ),
             ),
             Text(
