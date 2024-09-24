@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz_app/%20data_model/category_model.dart';
-import 'package:quiz_app/ui/details/details_page.dart';
+import 'package:quiz_app/ui/quiz_page/details_page.dart';
 
 import '../../api/quiz_response.dart';
 
