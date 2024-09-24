@@ -28,7 +28,10 @@ class DetailsPage extends ConsumerWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Text(currentQuestion.question),
+            child: Text(
+              currentQuestion.question,
+              style: const TextStyle(),
+            ),
           ),
           ...currentQuestion.options.map((option) {
             return GestureDetector(
