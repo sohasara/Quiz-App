@@ -15,7 +15,14 @@ class DetailsPage extends ConsumerWidget {
     final currentQuestion = questions[quizState.currentQuestionIndex];
     return Column(
       children: [
-        Text(currentQuestion.question),
+        Container(
+          height: 100,
+          width: 200,
+          decoration: BoxDecoration(
+            border: Border.all(),
+          ),
+          child: Text(currentQuestion.question),
+        ),
         ...currentQuestion.options.map((option) {
           return GestureDetector(
             onTap: () {
