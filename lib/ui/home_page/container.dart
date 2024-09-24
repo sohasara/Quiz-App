@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/ui/details/details_page.dart';
 
 class ContainerBox extends StatelessWidget {
   final String imageurl;
