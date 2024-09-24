@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quiz_app/%20data_model/category_model.dart';
 import 'package:quiz_app/state/quiz_state.dart';
 
 class DetailsPage extends ConsumerWidget {
-  const DetailsPage({super.key});
+  final CategoryModel category;
+  const DetailsPage({super.key, required this.category});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
