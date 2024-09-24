@@ -14,14 +14,16 @@ class DetailsPage extends ConsumerWidget {
     final quizNotifier = ref.read(quizProvider.notifier);
     final currentQuestion = questions[quizState.currentQuestionIndex];
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.only(left: 25.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            height: 150,
-            width: 350,
+            height: 160,
+            width: 380,
             decoration: BoxDecoration(
-              border: Border.all(),
+              color: Colors.purple[300],
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Text(currentQuestion.question),
           ),
@@ -34,6 +36,8 @@ class DetailsPage extends ConsumerWidget {
                 }
               },
               child: Container(
+                height: 60,
+                width: 380,
                 margin: const EdgeInsets.symmetric(vertical: 8),
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
