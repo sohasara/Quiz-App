@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:quiz_app/%20data_model/category_model.dart';
+import 'package:quiz_app/ui/details/details_page.dart';
 
 import 'package:quiz_app/ui/home_page/container.dart';
 
@@ -130,11 +131,19 @@ class HomePage extends StatelessWidget {
                   (index) {
                     return StaggeredGridTile.fit(
                       crossAxisCellCount: 1,
-                      child: ContainerBox(
-                        index: index,
-                        imageurl: categories[index].imageurl,
-                        text: categories[index].name,
-                        apiurl: categories[index].apiurl,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const DetailsPage()));
+                        },
+                        child: ContainerBox(
+                          index: index,
+                          imageurl: categories[index].imageurl,
+                          text: categories[index].name,
+                          apiurl: categories[index].apiurl,
+                        ),
                       ),
                     );
                   },
