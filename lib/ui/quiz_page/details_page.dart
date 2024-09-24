@@ -55,13 +55,14 @@ class DetailsPage extends ConsumerWidget {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(
+                      width: 2,
                       color: quizState.isAnswered &&
                               option == currentQuestion.correctAnswer
                           ? Colors.green
                           : quizState.isAnswered &&
                                   option != currentQuestion.correctAnswer
                               ? Colors.red
-                              : Colors.grey,
+                              : Colors.white,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -75,9 +76,12 @@ class DetailsPage extends ConsumerWidget {
               ),
             );
           }),
+          const SizedBox(
+            height: 30,
+          ),
           if (quizState.isAnswered)
-            ElevatedButton(
-              onPressed: () {
+            GestureDetector(
+              onTap: () {
                 quizNotifier.nextQuestion(questions.length);
                 if (quizState.currentQuestionIndex >= questions.length - 1) {
                   // Navigator.push(
@@ -90,7 +94,15 @@ class DetailsPage extends ConsumerWidget {
                   // );
                 }
               },
-              child: const Text('Next Question'),
+              child: Container(
+                height: 50,
+                width: 300,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Text('Next Question'),
+              ),
             ),
         ],
       ),
