@@ -4,6 +4,7 @@ import 'package:quiz_app/%20data_model/category_model.dart';
 import 'package:quiz_app/ui/details/details_page.dart';
 
 import 'package:quiz_app/ui/home_page/container.dart';
+import 'package:quiz_app/ui/quiz_page/quiz_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -136,7 +137,7 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailsPage(
+                              builder: (context) => QuizScreen(
                                 category: categories[index],
                               ),
                             ),

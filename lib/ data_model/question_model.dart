@@ -12,7 +12,7 @@ class Question {
   factory Question.fromJson(Map<String, dynamic> json) {
     List<String> options = List<String>.from(json['incorrect_answers']);
     options.add(json['correct_answer']);
-    options.shuffle(); // Shuffle so the correct answer isn't always last
+    options.shuffle();
 
     return Question(
       question: json['question'],
