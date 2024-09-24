@@ -52,6 +52,13 @@ class ResultScreen extends StatelessWidget {
                   bottomRight: Radius.circular(20),
                 ),
               ),
+              child: Column(
+                children: [
+                  Text(
+                    correctAnswers.toString(),
+                  )
+                ],
+              ),
             ),
             Text(
               'You answered $correctAnswers out of $totalQuestions correctly!',
