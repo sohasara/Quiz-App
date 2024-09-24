@@ -25,19 +25,31 @@ class ResultScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        //mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'You answered $correctAnswers out of $totalQuestions correctly!',
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context); // Go back to category screen
-            },
-            child: const Text('Try Again'),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.only(left: 25.0, top: 20),
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8),
+              height: 400,
+              width: 380,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+            ),
+            Text(
+              'You answered $correctAnswers out of $totalQuestions correctly!',
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context); // Go back to category screen
+              },
+              child: const Text('Try Again'),
+            ),
+          ],
+        ),
       ),
     );
   }
