@@ -63,12 +63,15 @@ class ResultScreen extends StatelessWidget {
                     height: 10,
                   ),
                   const Text(
-                    'You have complete the Quiz',
+                    'You have complete the Quiz !!!',
                     style: TextStyle(
                       fontSize: 22,
                       color: Colors.purple,
                       fontWeight: FontWeight.bold,
                     ),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -81,6 +84,9 @@ class ResultScreen extends StatelessWidget {
                           color: Colors.green,
                         ),
                       ),
+                      const SizedBox(
+                        width: 10,
+                      ),
                       Text(
                         correctAnswers.toString(),
                         style: const TextStyle(
@@ -89,6 +95,9 @@ class ResultScreen extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -100,6 +109,9 @@ class ResultScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.red,
                         ),
+                      ),
+                      const SizedBox(
+                        width: 10,
                       ),
                       Text(
                         (totalQuestions - correctAnswers).toString(),
