@@ -24,7 +24,14 @@ class QuizState {
     this.isAnswered = false,
     this.isCorrect = false,
   });
-
+  factory QuizState.initial() {
+    return QuizState(
+      currentQuestionIndex: 0,
+      correctAnswers: 0,
+      isAnswered: false,
+      isCorrect: false,
+    );
+  }
   QuizState copyWith({
     int? currentQuestionIndex,
     int? correctAnswers,
@@ -41,7 +48,7 @@ class QuizState {
 }
 
 class QuizNotifier extends StateNotifier<QuizState> {
-  QuizNotifier() : super(QuizState());
+  QuizNotifier() : super(QuizState.initial());
 
   void checkAnswer(String selectedAnswer, String correctAnswer) {
     bool isCorrect = selectedAnswer == correctAnswer;
@@ -63,7 +70,7 @@ class QuizNotifier extends StateNotifier<QuizState> {
   }
 
   void resetQuiz() {
-    state = QuizState(); // Reset the quiz state
+    state = QuizState.initial(); // Reset the quiz state
   }
 }
 

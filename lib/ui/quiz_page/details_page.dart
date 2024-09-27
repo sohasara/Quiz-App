@@ -14,113 +14,116 @@ class DetailsPage extends ConsumerWidget {
     final quizState = ref.watch(quizProvider);
     final quizNotifier = ref.read(quizProvider.notifier);
     final currentQuestion = questions[quizState.currentQuestionIndex];
-    return Padding(
-      padding: const EdgeInsets.only(left: 25.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              bottom: 10,
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(left: 25.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 20,
             ),
-            child: Container(
-              height: 170,
-              width: 380,
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
+            Padding(
+              padding: const EdgeInsets.only(
+                bottom: 10,
               ),
-              child: Text(
-                currentQuestion.question,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-          ...currentQuestion.options.map((option) {
-            return GestureDetector(
-              onTap: () {
-                if (!quizState.isAnswered) {
-                  quizNotifier.checkAnswer(
-                      option, currentQuestion.correctAnswer);
-                }
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: Container(
-                  height: 60,
-                  width: 380,
-                  margin: const EdgeInsets.symmetric(vertical: 8),
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      width: 2,
-                      color: quizState.isAnswered &&
-                              option == currentQuestion.correctAnswer
-                          ? Colors.green
-                          : quizState.isAnswered &&
-                                  option != currentQuestion.correctAnswer
-                              ? Colors.red
-                              : Colors.white,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    option,
-                    style: const TextStyle(
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-              ),
-            );
-          }),
-          const SizedBox(
-            height: 30,
-          ),
-          if (quizState.isAnswered)
-            GestureDetector(
-              onTap: () {
-                quizNotifier.nextQuestion(questions.length);
-                if (quizState.currentQuestionIndex >= questions.length - 1) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ResultScreen(
-                        correctAnswers: quizState.correctAnswers,
-                        totalQuestions: questions.length,
-                      ),
-                    ),
-                  );
-                }
-              },
               child: Container(
-                height: 50,
-                width: 300,
+                height: 170,
+                width: 380,
+                padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Center(
-                  child: Text(
-                    'Next Question',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.purple,
-                      fontWeight: FontWeight.bold,
-                    ),
+                child: Text(
+                  currentQuestion.question,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
-        ],
+            ...currentQuestion.options.map((option) {
+              return GestureDetector(
+                onTap: () {
+                  if (!quizState.isAnswered) {
+                    quizNotifier.checkAnswer(
+                        option, currentQuestion.correctAnswer);
+                  }
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: Container(
+                    height: 60,
+                    width: 380,
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        width: 2,
+                        color: quizState.isAnswered &&
+                                option == currentQuestion.correctAnswer
+                            ? Colors.green
+                            : quizState.isAnswered &&
+                                    option != currentQuestion.correctAnswer
+                                ? Colors.red
+                                : Colors.white,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      option,
+                      style: const TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+            const SizedBox(
+              height: 30,
+            ),
+            if (quizState.isAnswered)
+              GestureDetector(
+                onTap: () {
+                  quizNotifier.nextQuestion(questions.length);
+                  if (quizState.currentQuestionIndex >= questions.length - 1) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultScreen(
+                          correctAnswers: quizState.correctAnswers,
+                          totalQuestions: questions.length,
+                          questions: questions,
+                        ),
+                      ),
+                    );
+                  }
+                },
+                child: Container(
+                  height: 50,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Next Question',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.purple,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }

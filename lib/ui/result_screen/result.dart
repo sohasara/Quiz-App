@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quiz_app/ui/home_page/home.dart';
+import 'package:quiz_app/state/quiz_state.dart'; // Import quiz state provider
+import 'package:quiz_app/ui/quiz_page/details_page.dart';
 
-class ResultScreen extends StatelessWidget {
+import '../../ data_model/question_model.dart'; // Import the details page (Quiz screen)
+
+class ResultScreen extends ConsumerWidget {
   final int correctAnswers;
   final int totalQuestions;
+  final List<Question> questions; // Pass the questions to play again
 
   const ResultScreen({
     super.key,
     required this.correctAnswers,
     required this.totalQuestions,
+    required this.questions, // Initialize the questions
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final quizNotifier = ref.read(quizProvider.notifier);
+
     return Scaffold(
       backgroundColor: Colors.purple[100],
       appBar: AppBar(
@@ -65,7 +73,7 @@ class ResultScreen extends StatelessWidget {
                     height: 18,
                   ),
                   const Text(
-                    'You have complete the Quiz !!!',
+                    'You have completed the Quiz !!!',
                     style: TextStyle(
                       fontSize: 22,
                       color: Colors.purple,
@@ -79,7 +87,7 @@ class ResultScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Total Correct Answer:',
+                        'Total Correct Answers:',
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -105,7 +113,7 @@ class ResultScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Total Incorrect Answer:',
+                        'Total Incorrect Answers:',
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -136,13 +144,20 @@ class ResultScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(15),
                         ),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomePage()));
+                          // Reset quiz state
+                          quizNotifier.resetQuiz();
+                          // Navigate to quiz screen
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailsPage(
+                                questions: questions,
+                              ),
+                            ),
+                          );
                         },
                         child: const Text(
-                          '  Play Again  ',
+                          'Play Again',
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.white,
@@ -155,15 +170,15 @@ class ResultScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(15),
                         ),
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
-                            (MaterialPageRoute(
+                            MaterialPageRoute(
                               builder: (context) => const HomePage(),
-                            )),
+                            ),
                           );
                         },
                         child: const Text(
-                          'Back to home',
+                          'Back to Home',
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.white,
