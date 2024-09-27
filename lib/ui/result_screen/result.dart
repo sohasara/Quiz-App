@@ -60,7 +60,7 @@ class ResultScreen extends StatelessWidget {
                     'assets/con.jpg',
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 18,
                   ),
                   const Text(
                     'You have complete the Quiz !!!',
@@ -118,6 +118,32 @@ class ResultScreen extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Play Again',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Go to home',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ],
