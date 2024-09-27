@@ -94,8 +94,9 @@ class DetailsPage extends ConsumerWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => ResultScreen(
-                          correctAnswers: quizState.correctAnswers,
-                          totalQuestions: questions.length),
+                        correctAnswers: quizState.correctAnswers,
+                        totalQuestions: questions.length,
+                      ),
                     ),
                   );
                 }
