@@ -15,6 +15,7 @@ class DetailsPage extends ConsumerWidget {
     final quizNotifier = ref.read(quizProvider.notifier);
     final currentQuestion = questions[quizState.currentQuestionIndex];
     return Scaffold(
+      backgroundColor: Colors.purple[100],
       body: Padding(
         padding: const EdgeInsets.only(left: 25.0),
         child: Column(
@@ -32,7 +33,7 @@ class DetailsPage extends ConsumerWidget {
                 width: 380,
                 padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.purple[300],
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
@@ -40,6 +41,7 @@ class DetailsPage extends ConsumerWidget {
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -60,7 +62,7 @@ class DetailsPage extends ConsumerWidget {
                     margin: const EdgeInsets.symmetric(vertical: 8),
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.purple[300],
                       border: Border.all(
                         width: 2,
                         color: quizState.isAnswered &&
@@ -69,7 +71,7 @@ class DetailsPage extends ConsumerWidget {
                             : quizState.isAnswered &&
                                     option != currentQuestion.correctAnswer
                                 ? Colors.red
-                                : Colors.white,
+                                : Colors.transparent,
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -77,6 +79,7 @@ class DetailsPage extends ConsumerWidget {
                       option,
                       style: const TextStyle(
                         fontSize: 18,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -107,7 +110,7 @@ class DetailsPage extends ConsumerWidget {
                   height: 50,
                   width: 300,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.purple,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Center(
@@ -115,7 +118,7 @@ class DetailsPage extends ConsumerWidget {
                       'Next Question',
                       style: TextStyle(
                         fontSize: 18,
-                        color: Colors.purple,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
