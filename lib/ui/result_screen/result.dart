@@ -129,20 +129,30 @@ class ResultScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          padding: const EdgeInsets.all(15),
+                        ),
                         onPressed: () {},
                         child: const Text(
-                          'Play Again',
+                          '  Play Again  ',
                           style: TextStyle(
                             fontSize: 18,
+                            color: Colors.white,
                           ),
                         ),
                       ),
                       ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          padding: const EdgeInsets.all(15),
+                        ),
                         onPressed: () {},
                         child: const Text(
-                          'Go to home',
+                          'Back to home',
                           style: TextStyle(
                             fontSize: 18,
+                            color: Colors.white,
                           ),
                         ),
                       ),
