@@ -67,16 +67,38 @@ class ResultScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 22,
                       color: Colors.purple,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Total Correct:',
+                        'Total Correct Answer:',
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        ),
+                      ),
+                      Text(
+                        correctAnswers.toString(),
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Total Incorrect Answer:',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
                         ),
                       ),
                       Text(
