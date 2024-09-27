@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/ui/home_page/home.dart';
 
 class ResultScreen extends StatelessWidget {
   final int correctAnswers;
@@ -147,7 +148,13 @@ class ResultScreen extends StatelessWidget {
                           backgroundColor: Colors.purple,
                           padding: const EdgeInsets.all(15),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            (MaterialPageRoute(
+                                builder: (context) => const HomePage())),
+                          );
+                        },
                         child: const Text(
                           'Back to home',
                           style: TextStyle(
