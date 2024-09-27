@@ -59,10 +59,14 @@ class ResultScreen extends StatelessWidget {
                   Image.asset(
                     'assets/con.jpg',
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   const Text(
                     'You have complete the Quiz',
                     style: TextStyle(
                       fontSize: 22,
+                      color: Colors.purple,
                     ),
                   ),
                   Row(
