@@ -14,16 +14,16 @@ class QuizScreen extends ConsumerWidget {
     final quizQuestions = ref.watch(quizQuestionsProvider(category.apiurl));
 
     return Scaffold(
-      backgroundColor: Colors.purple[200],
+      backgroundColor: Colors.purple[100],
       appBar: AppBar(
-        backgroundColor: Colors.purple[200],
+        backgroundColor: Colors.purple[100],
         centerTitle: true,
         title: Text(
           'Quiz: ${category.name}',
           style: const TextStyle(
-            fontSize: 25,
+            fontSize: 30,
             fontWeight: FontWeight.bold,
-            // color: Colors.white,
+            color: Colors.purple,
           ),
         ),
       ),
