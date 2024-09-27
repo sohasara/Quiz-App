@@ -42,7 +42,7 @@ class ResultScreen extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.all(8),
-              height: 450,
+              height: 550,
               width: 380,
               decoration: const BoxDecoration(
                 color: Colors.white,
@@ -53,15 +53,11 @@ class ResultScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Image.asset(
                     'assets/con.jpg',
-                  ),
-                  const Text(
-                    'Congratulations',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
                   ),
                   const Text(
                     'You have complete the Quiz',
@@ -90,12 +86,6 @@ class ResultScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Try Again'),
             ),
           ],
         ),
