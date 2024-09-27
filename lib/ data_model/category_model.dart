@@ -30,7 +30,7 @@ final List<CategoryModel> categories = [
   ),
   CategoryModel(
     name: 'Geography',
-    imageurl: 'assets/girl.png',
+    imageurl: 'assets/geo.png',
     apiurl:
         'https://opentdb.com/api.php?amount=10&category=22&difficulty=medium',
   ),
