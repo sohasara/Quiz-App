@@ -53,6 +53,9 @@ class ResultScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
+                  Image.asset(
+                    'assets/girl.png',
+                  ),
                   const Text(
                     'Congratulations',
                     style: TextStyle(
@@ -64,10 +67,10 @@ class ResultScreen extends StatelessWidget {
                     'You have complete the Quiz',
                     style: TextStyle(
                       fontSize: 22,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
                         'Total Correct:',
