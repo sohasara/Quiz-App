@@ -1,15 +1,3 @@
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:quiz_app/api/response.dart';
-// import 'package:quiz_app/%20data_model/api_data/quiz_response.dart';
-
-// final quizApiProvider = Provider((ref) => QuizApi());
-// final quizProvider = FutureProvider<QuizResponse>((ref) async {
-//   return ref.read(quizApiProvider).fetchApi();
-// });
-
-// final currentQuestionIndexProvider = StateProvider<int>((ref) => 0);
-
-// final selectedAnswerProvider = StateProvider<String?>((ref) => null);
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class QuizState {
@@ -70,7 +58,7 @@ class QuizNotifier extends StateNotifier<QuizState> {
   }
 
   void resetQuiz() {
-    state = QuizState.initial(); // Reset the quiz state
+    state = QuizState.initial();
   }
 }
 
