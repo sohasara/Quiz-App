@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+//import 'package:quiz_app/ui/result_screen/result.dart';
 
 import 'package:quiz_app/ui/splash_page/splash.dart';
 
@@ -19,7 +20,6 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashPage(),
-      // home: CategoryScreen(),
     );
   }
 }
