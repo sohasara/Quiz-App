@@ -29,12 +29,6 @@ final List<CategoryModel> categories = [
         'https://opentdb.com/api.php?amount=10&category=11&difficulty=hard&type=multiple',
   ),
   CategoryModel(
-    name: 'Geography',
-    imageurl: 'assets/geo.png',
-    apiurl:
-        'https://opentdb.com/api.php?amount=10&category=22&difficulty=medium',
-  ),
-  CategoryModel(
     name: 'GK',
     imageurl: 'assets/gk.png',
     apiurl:
