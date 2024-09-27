@@ -98,11 +98,11 @@ class ResultScreen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Colors.green,
+                          color: Colors.red,
                         ),
                       ),
                       Text(
-                        correctAnswers.toString(),
+                        (totalQuestions - correctAnswers).toString(),
                         style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
