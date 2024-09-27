@@ -54,7 +54,7 @@ class ResultScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Image.asset(
-                    'assets/girl.png',
+                    'assets/congra.jpg',
                   ),
                   const Text(
                     'Congratulations',
